@@ -18,5 +18,8 @@ class Guest
     return @money
   end
 
+  def guest_pays(price)
+    @money = @money - price
+  end
 
 end
