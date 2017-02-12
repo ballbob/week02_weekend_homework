@@ -34,6 +34,11 @@ class TestRoom < Minitest::Test
     assert_equal(@songs,@room.show_songs)
   end
 
+  def test_check_guest_in
+    @room.check_in(@kevin)
+    assert_equal(@guests.include?(@kevin),true)
+  end
+
 end
 
 

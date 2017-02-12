@@ -13,4 +13,8 @@ class Room
     return @songs
   end
 
+  def check_in(newguest)
+    @guests << newguest
+  end
+
 end
