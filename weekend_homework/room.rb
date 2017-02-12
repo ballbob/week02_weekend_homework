@@ -1,9 +1,10 @@
 class Room
 
-  def initialize(guests,songs,space)
+  def initialize(guests,songs,space,fee)
     @guests = guests
     @songs = songs
     @space = space
+    @fee = fee
   end
 
   def show_guests
@@ -15,11 +16,14 @@ class Room
   end
 
   def check_in(newguest)
-    if @guests.count <= (@space - 1)
-      @guests << newguest
-    else
-      return "Room full"
+    if newguest.show_guest_money >= @fee
+      if @guests.count <= (@space - 1)
+        @guests << newguest
+        else
+          return "Room full"
+      end
     end
+    return "Insufficient funds."
   end
 
   def check_out(departing)

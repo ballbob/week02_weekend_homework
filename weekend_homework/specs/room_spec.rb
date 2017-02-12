@@ -13,7 +13,7 @@ class TestRoom < Minitest::Test
       @kim = Guest.new("Kim", "Don't Burn the Witch", 45)
     ]
 
-    @kevin = Guest.new("Kevin", nil, 20)
+    @kevin = Guest.new("Kevin", nil, 0)
 
     @songs = [
       @throughfire = Song.new('Through Fire and Flames', 'Dragonforce', 'Metal'),
@@ -23,7 +23,7 @@ class TestRoom < Minitest::Test
 
     @hello = Song.new("Hello","Adele","Ballad")
 
-    @room = Room.new(@guests,@songs,3)
+    @room = Room.new(@guests,@songs,3,6)
   end
 
   def test_show_guests
@@ -58,8 +58,12 @@ class TestRoom < Minitest::Test
 #    assert_equal(@room.show_space,10)
 #  end
 
-  def test_check_in_but_room_full
-    assert_equal(@room.check_in(@mac),"Room full")
+#  def test_check_in_but_room_full
+#    assert_equal(@room.check_in(@mac),"Room full")
+#  end
+
+  def test_check_in_with_fee__reject
+    assert_equal("Insufficient funds.", @room.check_in(@kevin))
   end
 
 end
