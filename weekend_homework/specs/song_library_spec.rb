@@ -7,7 +7,7 @@ require_relative('../song_library.rb')
 class TestSongLibrary < Minitest::Test
 
   def setup()
-    songs = [    
+    @songs = [    
       @throughfire = Song.new('Through Fire and Flames', 'Dragonforce', 'Metal'),
       @blasphemer = Song.new('Blasphemer', 'Sodom', 'Metal'),
       @dontburn = Song.new("Don't Burn the Witch", "Sodom", "Metal"),
@@ -21,8 +21,8 @@ class TestSongLibrary < Minitest::Test
   end
 
   def test_search_titles
-    titleslist = @library.search_titles("Bat Out Of Hell")
-    assert_equal(titleslist.count,1)
+    titleslist = @library.search_title("Bat Out Of Hell")
+    assert_equal(titleslist,[@batoutofhell])
   end
 
 

@@ -1,12 +1,11 @@
 class Song_Library
   def initialize(songs)
-    @songs = []
+    @songs = songs
   end
 
   def search_title(title)
-    songsoftitle = @songs.select |song| { 
-      song.get_song_name == title 
-    }
-    return songsoftitle
+    @songs.select do |song| 
+      song.title == title 
+    end
   end
 end
