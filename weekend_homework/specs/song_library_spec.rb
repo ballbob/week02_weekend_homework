@@ -35,5 +35,4 @@ class TestSongLibrary < Minitest::Test
     assert_equal(@library.search_genre("Metal"),[@throughfire,@blasphemer,@dontburn])
   end
 
-
 end
