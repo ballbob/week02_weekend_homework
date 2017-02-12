@@ -2,6 +2,7 @@ require('minitest/autorun')
 require('minitest/rg')
 require_relative('../song.rb')
 require_relative('../guest.rb')
+require_relative('../room.rb')
 
 class TestRoom < Minitest::Test
 
@@ -20,10 +21,11 @@ class TestRoom < Minitest::Test
       @dontburn = Song.new("Don't Burn the Witch", "Sodom", "Metal")
     ]
 
-    room = Room.new(@guests,@songs)
+    @room = Room.new(@guests,@songs)
   end
 
   def test_show_guests
+    assert_equal(@guests,@room.show_guests)
   end
 
 end
