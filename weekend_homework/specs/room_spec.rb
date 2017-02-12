@@ -23,7 +23,7 @@ class TestRoom < Minitest::Test
 
     @hello = Song.new("Hello","Adele","Ballad")
 
-    @room = Room.new(@guests,@songs)
+    @room = Room.new(@guests,@songs,5)
   end
 
   def test_show_guests
@@ -37,6 +37,11 @@ class TestRoom < Minitest::Test
   def test_check_guest_in
     @room.check_in(@kevin)
     assert_equal(@guests.include?(@kevin),true)
+  end
+
+  def test_guest_check_out
+    @room.check_out(@michelle)
+    assert_equal(@guests.include?(@michelle),false)
   end
 
   def test_add_song

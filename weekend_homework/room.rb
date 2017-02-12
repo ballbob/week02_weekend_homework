@@ -1,8 +1,9 @@
 class Room
 
-  def initialize(guests,songs)
+  def initialize(guests,songs,space)
     @guests = guests
     @songs = songs
+    @space = space
   end
 
   def show_guests
@@ -17,9 +18,12 @@ class Room
     @guests << newguest
   end
 
+  def check_out(departing)
+    @guests.delete(departing)
+  end
+
   def add_song(newsong)
     @songs << newsong
   end
-
 
 end
