@@ -15,7 +15,8 @@ class TestSongLibrary < Minitest::Test
       @itsmyparty = Song.new("It's My Party (And I'll Cry If I Want To", "Lesley Gore", ["60s","Pop"]),
       @memory = Song.new("Memory","Andrew Lloyd Webber","Showtunes"),
       @babyonemoretime = Song.new("Baby One More Time", "Britney Spears", "Pop"),
-      @batoutofhell = Song.new("Bat Out Of Hell", "Meat Loaf", ["Rock", "Dad Rock"])
+      @batoutofhell = Song.new("Bat Out Of Hell", "Meat Loaf", ["Rock", "Dad Rock"]),
+      @rollinginthedeep = Song.new("Rolling in the Deep","Adele","Ballad")
       ]
     @library = Song_Library.new(@songs)
   end
@@ -23,6 +24,11 @@ class TestSongLibrary < Minitest::Test
   def test_search_titles
     titleslist = @library.search_title("Bat Out Of Hell")
     assert_equal(titleslist,[@batoutofhell])
+  end
+
+  def test_search_artist
+    artists = @library.search_artists("Adele")
+    assert_equal(artists,[@hello,@rollinginthedeep])
   end
 
 

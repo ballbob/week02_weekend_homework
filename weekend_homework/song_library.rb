@@ -8,4 +8,10 @@ class Song_Library
       song.title == title 
     end
   end
+
+  def search_artists(artist)
+    @songs.select do |song|
+      song.get_song_artist == artist
+    end
+  end
 end
