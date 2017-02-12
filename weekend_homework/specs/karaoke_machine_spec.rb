@@ -9,7 +9,7 @@ class TestKaraokeMachine < Minitest::Test
   def setup()
     @guest1 = Guest.new("Simon","Forget Me Nots",20)
     @songs = [
-    @song1 = Song.new("It's My Party (And I'll Cry If I Want To", "Lesley Gore", ["60s","Pop","Classic pop"])
+    @song1 = Song.new("It's My Party (And I'll Cry If I Want To", "Lesley Gore", ["60s","Pop"])
     ]
     @song2 = Song.new("Memory","Andrew Lloyd Webber","Showtunes")
     @karaoke_machine1 = Karaoke_Machine.new(@songs)
@@ -25,6 +25,14 @@ class TestKaraokeMachine < Minitest::Test
     assert_equal(@songs.include?(@song1),false)
   end
 
-  
+  def test_show_songs
+    assert_equal(@karaoke_machine1.show_songs,@songs)
+  end
+
+  def test_play_song
+    assert_equal("Here's Simon with 'Memory' by Andrew Lloyd Webber!", @karaoke_machine1.play_song(@guest1,@song2))
+  end
+
+
 
 end
