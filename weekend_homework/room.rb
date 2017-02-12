@@ -1,18 +1,14 @@
 class Room
 
-  def initialize(guests,songs,space,fee)
+  def initialize(guests,karaoke_machine,space,fee)
     @guests = guests
-    @songs = songs
+    @karaoke_machine = karaoke_machine
     @space = space
     @fee = fee
   end
 
   def show_guests
     return @guests
-  end
-
-  def show_songs
-    return @songs
   end
 
   def check_in(newguest)
@@ -31,20 +27,8 @@ class Room
     @guests.delete(departing)
   end
 
-  def add_song(newsong)
-    @songs << newsong
-  end
-
-  def remove_song(song)
-    @songs.delete(song)
-  end
-
   def show_space
     return @space
-  end
-
-  def play_song(guest,song)
-    return "Here's #{guest.show_guest_name} with '#{song.get_song_name}' by #{song.get_song_artist}!"
   end
 
 end
