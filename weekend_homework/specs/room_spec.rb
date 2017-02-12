@@ -23,7 +23,7 @@ class TestRoom < Minitest::Test
 
     @hello = Song.new("Hello","Adele","Ballad")
 
-    @room = Room.new(@guests,@songs,10)
+    @room = Room.new(@guests,@songs,3)
   end
 
   def test_show_guests
@@ -34,15 +34,15 @@ class TestRoom < Minitest::Test
     assert_equal(@songs,@room.show_songs)
   end
 
-  def test_check_guest_in
-    @room.check_in(@kevin)
-    assert_equal(@guests.include?(@kevin),true)
-  end
+#  def test_check_guest_in
+#    @room.check_in(@kevin)
+#    assert_equal(@guests.include?(@kevin),true)
+#  end
 
-  def test_guest_check_out
-    @room.check_out(@michelle)
-    assert_equal(@guests.include?(@michelle),false)
-  end
+#  def test_guest_check_out
+#    @room.check_out(@michelle)
+#    assert_equal(@guests.include?(@michelle),false)
+#  end
 
   def test_add_song
     @room.add_song(@hello)
@@ -54,8 +54,12 @@ class TestRoom < Minitest::Test
     assert_equal(@songs.include?(@blasphemer),false)
   end
 
-  def test_show_space
-    assert_equal(@room.show_space,10)
+#  def test_show_space
+#    assert_equal(@room.show_space,10)
+#  end
+
+  def test_check_in_but_room_full
+    assert_equal(@room.check_in(@mac),"Room full")
   end
 
 end

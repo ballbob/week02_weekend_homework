@@ -15,7 +15,11 @@ class Room
   end
 
   def check_in(newguest)
-    @guests << newguest
+    if @guests.count <= (@space - 1)
+      @guests << newguest
+    else
+      return "Room full"
+    end
   end
 
   def check_out(departing)
