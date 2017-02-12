@@ -20,5 +20,11 @@ class TestKaraokeMachine < Minitest::Test
     assert_equal(@songs.include?(@song2),true)
   end
 
+  def test_remove_song
+    @karaoke_machine1.remove_song(@song1)
+    assert_equal(@songs.include?(@song1),false)
+  end
+
+  
 
 end
