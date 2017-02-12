@@ -26,4 +26,8 @@ class Room
     @songs << newsong
   end
 
+  def remove_song(song)
+    @songs.delete(song)
+  end
+
 end

@@ -49,6 +49,11 @@ class TestRoom < Minitest::Test
     assert_equal(@songs.include?(@hello),true)
   end
 
+  def test_remove_song
+    @room.remove_song(@blasphemer)
+    assert_equal(@songs.include?(@blasphemer),false)
+  end
+
 end
 
 
