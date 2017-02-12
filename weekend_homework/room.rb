@@ -30,4 +30,8 @@ class Room
     @songs.delete(song)
   end
 
+  def show_space
+    return @space
+  end
+
 end
