@@ -9,4 +9,8 @@ class Room
     return @guests
   end
 
+  def show_songs
+    return @songs
+  end
+
 end
