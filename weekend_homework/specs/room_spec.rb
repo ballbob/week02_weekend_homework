@@ -8,8 +8,8 @@ class TestRoom < Minitest::Test
 
   def setup()
     @guests = [
-      @sandra = Guest.new("sandra", 'Through Fire and Flames',20),
-      @michelle = Guest.new("michelle", 'Blasphemer',18),
+      @sandra = Guest.new("Sandra", 'Through Fire and Flames',20),
+      @michelle = Guest.new("Michelle", 'Blasphemer',18),
       @kim = Guest.new("Kim", "Don't Burn the Witch", 45)
     ]
 
@@ -70,6 +70,10 @@ class TestRoom < Minitest::Test
     @room.check_in(@kevin)
     assert_equal(@guests.include?(@kevin),true)
     assert_equal(@kevin.show_guest_money,14)
+  end
+
+  def test_play_song
+    assert_equal(@room.play_song(@michelle,@throughfire), "Here's Michelle with 'Through Fire and Flames' by Dragonforce!")
   end
 
 end

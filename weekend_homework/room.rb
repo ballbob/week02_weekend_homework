@@ -43,4 +43,8 @@ class Room
     return @space
   end
 
+  def play_song(guest,song)
+    return "Here's #{guest.show_guest_name} with '#{song.get_song_name}' by #{song.get_song_artist}!"
+  end
+
 end
