@@ -69,6 +69,7 @@ class TestRoom < Minitest::Test
   def test_check_in_with_fee__accept
     @room.check_in(@kevin)
     assert_equal(@guests.include?(@kevin),true)
+    assert_equal(@kevin.show_guest_money,14)
   end
 
 end

@@ -19,6 +19,7 @@ class Room
     if newguest.show_guest_money >= @fee
       if @guests.count <= (@space - 1)
         @guests << newguest
+        newguest.guest_pays(@fee)
         else
           return "Room full"
       end
