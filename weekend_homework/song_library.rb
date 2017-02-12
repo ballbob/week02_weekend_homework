@@ -14,4 +14,10 @@ class Song_Library
       song.get_song_artist == artist
     end
   end
+
+  def search_genre(genre)
+    @songs.select do |song|
+      song.get_song_categories == genre
+    end
+  end
 end
