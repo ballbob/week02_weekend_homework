@@ -17,4 +17,9 @@ class Room
     @guests << newguest
   end
 
+  def add_song(newsong)
+    @songs << newsong
+  end
+
+
 end
